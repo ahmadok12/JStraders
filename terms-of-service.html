@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service – JS Traders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2196c4; --blue-dark: #1a6e96; --blue-light: #e8f5fc;
+      --navy: #0d2d3e; --white: #ffffff; --offwhite: #f7f9fb;
+      --text: #1e3040; --muted: #5a7080; --border: #d0e7f0;
+      --shadow: 0 6px 32px rgba(33,150,196,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.65rem 6%; gap: 1rem;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .logo-wrap img { height: 50px; width: auto; }
+    nav a {
+      font-size: 0.87rem; font-weight: 500; color: var(--text);
+      text-decoration: none; margin-left: 1.8rem; transition: color 0.2s;
+    }
+    nav a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue); color: var(--white) !important;
+      padding: 0.42rem 1rem; border-radius: 4px;
+    }
+    .nav-cta:hover { background: var(--blue-dark) !important; }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(140deg, #081d2a 0%, #0e3348 55%, #175d80 100%);
+      padding: 4rem 8% 3.5rem; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 55% 60% at 80% 50%, rgba(33,150,196,0.18) 0%, transparent 70%);
+    }
+    .dot-pattern {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+      background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .page-hero-content { position: relative; }
+    .badge {
+      display: inline-block;
+      background: rgba(33,150,196,0.22); border: 1px solid rgba(33,150,196,0.45);
+      color: #7dd4ef; font-size: 0.72rem; letter-spacing: 0.13em;
+      text-transform: uppercase; padding: 0.3rem 0.9rem;
+      border-radius: 20px; margin-bottom: 1rem;
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
+      color: #fff; line-height: 1.15; margin-bottom: 0.8rem;
+    }
+    .page-hero p {
+      font-size: 0.97rem; color: rgba(255,255,255,0.65);
+      max-width: 540px; line-height: 1.7;
+    }
+
+    /* CONTENT */
+    .policy-wrap {
+      max-width: 820px; margin: 0 auto;
+      padding: 4rem 6% 5rem;
+    }
+    .policy-wrap h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-weight: 700; color: var(--navy);
+      margin: 2.5rem 0 0.75rem; padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--blue-light);
+    }
+    .policy-wrap h2:first-child { margin-top: 0; }
+    .policy-wrap p {
+      font-size: 0.94rem; color: var(--text); line-height: 1.78;
+      margin-bottom: 1rem;
+    }
+    .policy-wrap ul {
+      margin: 0.5rem 0 1rem 1.4rem;
+    }
+    .policy-wrap ul li {
+      font-size: 0.94rem; color: var(--text); line-height: 1.78;
+      margin-bottom: 0.4rem;
+    }
+    .policy-wrap a { color: var(--blue); text-decoration: none; }
+    .policy-wrap a:hover { text-decoration: underline; }
+    .effective-date {
+      display: inline-block;
+      background: var(--blue-light); color: var(--blue-dark);
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em;
+      padding: 0.3rem 0.8rem; border-radius: 4px; margin-bottom: 2rem;
+    }
+    .contact-box {
+      background: var(--offwhite); border: 1px solid var(--border);
+      border-left: 4px solid var(--blue);
+      border-radius: 10px; padding: 1.5rem 1.8rem; margin-top: 2rem;
+    }
+    .contact-box p { margin-bottom: 0.3rem; }
+    .contact-box p:last-child { margin-bottom: 0; }
+    .highlight-box {
+      background: #fff8e1; border: 1px solid #ffe082;
+      border-radius: 8px; padding: 1rem 1.4rem; margin: 1rem 0 1.5rem;
+      font-size: 0.9rem; color: #5d4037; line-height: 1.65;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.65);
+      padding: 3.5rem 8% 2rem;
+      display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 3rem;
+    }
+    .ft-brand img { height: 54px; margin-bottom: 1rem; }
+    .ft-brand p { font-size: 0.87rem; line-height: 1.7; }
+    .ft-col h4 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.88); margin-bottom: 1rem; }
+    .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ft-col ul li a { color: rgba(255,255,255,0.58); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .ft-col ul li a:hover { color: #5ec9f0; }
+    .ft-bottom { background: #06161f; text-align: center; padding: 1rem 8%; font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+    .ft-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; margin: 0 0.4rem; }
+    .ft-bottom a:hover { color: #5ec9f0; }
+
+    @media (max-width: 900px) {
+      footer { grid-template-columns: 1fr; gap: 2rem; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo-wrap">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/7QCcUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAIAcAigAYkZCTUQwMTAwMGFjMDAzMDAwMDY4MDkwMDAwMjEwZjAwMDAyNjExMDAwMGZmMTIwMDAwNmYxODAwMDAzODFmMDAwMDhlMjEwMDAwNTgyMzAwMDAxMDI1MDAwMDdiMzAwMDAwHAJnABQ0QUs5MDN4X01SWWhFYWFwdkJ1M//iAhxJQ0NfUFJPRklMRQABAQAAAgxsY21zAhAAAG1udHJSR0IgWFlaIAfcAAEAGQADACkAOWFjc3BBUFBMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtbGNtcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmRlc2MAAAD8AAAAXmNwcnQAAAFcAAAAC3d0cHQAAAFoAAAAFGJrcHQAAAF8AAAAFHJYWVoAAAGQAAAAFGdYWVoAAAGkAAAAFGJYWVoAAAG4AAAAFHJUUkMAAAHMAAAAQGdUUkMAAAHMAAAAQGJUUkMAAAHMAAAAQGRlc2MAAAAAAAAAA2MyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAARkIAAFhZWiAAAAAAAAD21gABAAAAANMtWFlaIAAAAAAAAAMWAAADMwAAAqRYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9jdXJ2AAAAAAAAABoAAADLAckDYwWSCGsL9hA/FVEbNCHxKZAyGDuSRgVRd13ta3B6BYmxmnysab9908PpMP///wAAeA==" alt="JS Traders Logo" />
+  </a>
+  <nav>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#why">About</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="tel:+923006950050" class="nav-cta">Call Us</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="dot-pattern"></div>
+  <div class="page-hero-content">
+    <span class="badge">Legal</span>
+    <h1>Terms of Service</h1>
+    <p>The terms and conditions that govern your use of the JS Traders website and any purchase or service arrangement made with us.</p>
+  </div>
+</div>
+
+<div class="policy-wrap">
+  <span class="effective-date">Effective Date: April 2025</span>
+
+  <h2>1. Acceptance of Terms</h2>
+  <p>By accessing or using the JS Traders website (the "Site") or by purchasing any products or services from us, you agree to be bound by these Terms of Service ("Terms"). If you do not agree, please do not use our Site or services.</p>
+  <p>These Terms apply to all visitors, customers, and anyone else who accesses the Site or engages with JS Traders for the supply of poultry equipment and related accessories.</p>
+
+  <h2>2. About JS Traders</h2>
+  <p>JS Traders is a sole-proprietorship business registered and operating from Okara, Punjab, Pakistan. We supply poultry feeding systems, drinking systems, ventilation equipment, accessories, and spare parts to farms and agricultural businesses primarily in Punjab and neighbouring regions.</p>
+
+  <h2>3. Products &amp; Services</h2>
+  <p>All product descriptions, specifications, and pricing shown on our Site are provided for informational purposes and are subject to change without notice. While we strive for accuracy, we do not warrant that product descriptions are entirely free of error.</p>
+  <p>Final pricing, availability, and delivery terms are confirmed at the time of order acceptance. Orders are only binding once acknowledged in writing (by message, email, or receipt) by JS Traders.</p>
+
+  <h2>4. Orders &amp; Payments</h2>
+  <p>Orders may be placed by phone, WhatsApp, email, or through the contact form on our Site. We reserve the right to accept or decline any order at our discretion.</p>
+  <ul>
+    <li>Payment terms and methods are agreed at the time of order confirmation.</li>
+    <li>Full or partial advance payment may be required for certain products or custom orders.</li>
+    <li>Prices are in Pakistani Rupees (PKR) unless otherwise stated.</li>
+    <li>Any taxes, duties, or levies applicable at the time of sale are the responsibility of the buyer.</li>
+  </ul>
+
+  <h2>5. Delivery &amp; Logistics</h2>
+  <p>Estimated delivery timelines are provided in good faith but are not guaranteed. Delays may occur due to carrier issues, weather, public holidays, or other factors outside our control.</p>
+  <p>Risk of loss or damage to goods passes to the buyer upon handover to the carrier or upon delivery to the buyer's premises, whichever occurs first. JS Traders is not liable for loss or damage in transit once the goods have left our premises with a third-party carrier.</p>
+
+  <h2>6. Returns &amp; Warranty</h2>
+  <p>We want you to be satisfied with every purchase. Our returns and warranty policy is as follows:</p>
+  <ul>
+    <li>Defective items reported within <strong>7 days of receipt</strong> may be returned or exchanged, subject to inspection.</li>
+    <li>Items must be returned in their original condition and packaging where possible.</li>
+    <li>Products damaged due to improper installation, misuse, or normal wear and tear are not covered.</li>
+    <li>Manufacturer warranties (where applicable) are passed on to the buyer; JS Traders will assist in facilitating warranty claims.</li>
+  </ul>
+  <div class="highlight-box">
+    To initiate a return or raise a warranty claim, please contact us within the applicable period. We will guide you through the process promptly.
+  </div>
+
+  <h2>7. Limitation of Liability</h2>
+  <p>To the fullest extent permitted by law, JS Traders shall not be liable for any indirect, incidental, consequential, or punitive damages arising from the use of our products or website, including but not limited to loss of profits, loss of data, or business interruption.</p>
+  <p>Our total liability in any matter arising from these Terms or a purchase shall not exceed the amount paid by you for the specific product or service in question.</p>
+
+  <h2>8. Intellectual Property</h2>
+  <p>All content on this Site — including text, images, logos, and design — is owned by or licensed to JS Traders and may not be reproduced, distributed, or used without prior written permission.</p>
+
+  <h2>9. Website Use</h2>
+  <p>You agree to use this Site only for lawful purposes and in a manner that does not infringe the rights of others. You must not attempt to gain unauthorised access to any part of the Site, interfere with its operation, or transmit harmful content.</p>
+
+  <h2>10. Governing Law</h2>
+  <p>These Terms are governed by and construed in accordance with the laws of the Islamic Republic of Pakistan. Any disputes shall be subject to the jurisdiction of the courts of Okara or Lahore, Punjab, Pakistan.</p>
+
+  <h2>11. Changes to Terms</h2>
+  <p>We may update these Terms from time to time. When we do, the revised version will be posted on this page with an updated effective date. Continued use of our Site or services after changes are posted constitutes your acceptance of the revised Terms.</p>
+
+  <h2>12. Contact Us</h2>
+  <p>If you have any questions about these Terms or any aspect of our service, please get in touch:</p>
+
+  <div class="contact-box">
+    <p><strong>JS Traders</strong></p>
+    <p>46, 47 – Power House Road, Ghalla Mandi, Okara, Pakistan – 56300</p>
+    <p>Phone: <a href="tel:+923006950050">0300 6950050</a></p>
+    <p>Email: <a href="mailto:jstraderspk786@gmail.com">jstraderspk786@gmail.com</a></p>
+    <p>Business Hours: Monday – Saturday, 9:00 AM – 6:00 PM</p>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-brand">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/7QCcUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAIAcAigAYkZCTUQwMTAwMGFjMDAzMDAwMDY4MDkwMDAwMjEwZjAwMDAyNjExMDAwMGZmMTIwMDAwNmYxODAwMDAzODFmMDAwMDhlMjEwMDAwNTgyMzAwMDAxMDI1MDAwMDdiMzAwMDAwHAJnABQ0QUs5MDN4X01SWWhFYWFwdkJ1M//iAhxJQ0NfUFJPRklMRQABAQAAAgxsY21zAhAAAG1udHJSR0IgWFlaIAfcAAEAGQADACkAOWFjc3BBUFBMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtbGNtcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmRlc2MAAAD8AAAAXmNwcnQAAAFcAAAAC3d0cHQAAAFoAAAAFGJrcHQAAAF8AAAAFHJYWVoAAAGQAAAAFGdYWVoAAAGkAAAAFGJYWVoAAAG4AAAAFHJUUkMAAAHMAAAAQGdUUkMAAAHMAAAAQGJUUkMAAAHMAAAAQGRlc2MAAAAAAAAAA2MyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAARkIAAFhZWiAAAAAAAAD21gABAAAAANMtWFlaIAAAAAAAAAMWAAADMwAAAqRYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9jdXJ2AAAAAAAAABoAAADLAckDYwWSCGsL9hA/FVEbNCHxKZAyGDuSRgVRd13ta3B6BYmxmnysab9908PpMP///wAAeA==" alt="JS Traders" />
+    <p>Poultry feeding, drinking, and ventilation systems — and all related accessories — supplied with care from Okara, Punjab.</p>
+  </div>
+  <div class="ft-col">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="index.html#services">Feeding Systems</a></li>
+      <li><a href="index.html#services">Drinking Systems</a></li>
+      <li><a href="index.html#services">Ventilation Systems</a></li>
+      <li><a href="index.html#services">Accessories</a></li>
+    </ul>
+  </div>
+  <div class="ft-col">
+    <h4>Contact</h4>
+    <ul>
+      <li><a href="tel:+923006950050">0300 6950050</a></li>
+      <li><a href="mailto:jstraderspk786@gmail.com">jstraderspk786@gmail.com</a></li>
+      <li><a href="index.html#contact">Send a Message</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="ft-bottom">
+  &copy; 2025 JS Traders, Okara, Pakistan. All rights reserved.
+  &nbsp;|&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-of-service.html">Terms of Service</a>
+</div>
+
+</body>
+</html>
